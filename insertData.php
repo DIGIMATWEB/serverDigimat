@@ -9,6 +9,7 @@ $pasword=$_POST['pasword'];
 $query = mysqli_query($conn,"INSERT INTO datos (name,email,pasword) VALUES ('$name','$email','$pasword')";
 
 if($query)
+{
   $json= array("response" => 'success','status' => 0,"message"=>"Sumited successfully");
     //  echo "New record created successfully";
 } else {
