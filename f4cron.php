@@ -28,7 +28,8 @@ if(!$conn)
         // $stmt2 = mysqli_query($conn,$sql2);
             if(mysqli_query($conn,$sql2))
             {
-            $jsonDataOutput=array("token"=>$Mtoken,"score"=>$Fvalue);
+           // $jsonDataOutput=array("token"=>$Mtoken,"score"=>$Fvalue);
+            $jsonDataOutput=array("score"=>$Fvalue);
             $jsonOutput=array("resconseCode"=>105,"message"=>"succes","data"=>$jsonDataOutput);
             echo   json_encode($jsonOutput);
             }else{
