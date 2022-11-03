@@ -21,6 +21,26 @@ curl_setopt($ch,CURLOPT_CONNECTTIMEOUT ,3);
 curl_setopt($ch,CURLOPT_TIMEOUT, 20);
 $response = curl_exec($ch);
 //print "curl response is:" . $response;
-print $response;
+//print $response;
 curl_close ($ch);
+$data = json_decode($response);
+
+$mResponsecode=$data->ResponseCode;
+$mMessage=$data->Message;
+$mActivo=$data->Activo;
+$mData=$data->data;
+
+$fdata=json_encode($mData);
+if($fdata==null)
+{
+    print "no exite informacion de pedidos pendientes valor de data: ";
+    print $fdata;
+}else{
+    //aqui mero va el push
+    print $fdata;
+}
+
+
+
+
 ?>
