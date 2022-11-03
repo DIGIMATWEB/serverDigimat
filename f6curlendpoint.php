@@ -2,7 +2,7 @@
 //
 // A very simple PHP example that sends a HTTP POST to a remote site
 //
-
+include "f1conn.php";
 $ch = curl_init();
 $token = "bQBh-HIAd-BlAH-ALAA";
 $fields = array( 'token'=>$token);
@@ -31,12 +31,13 @@ $mActivo=$data->Activo;
 $mData=$data->data;
 
 $fdata=json_encode($mData);
-if($fdata==null)
+if($fdata=="null"||$data=="null"||$response=="null")
 {
     print "no exite informacion de pedidos pendientes valor de data: ";
     print $fdata;
 }else{
     //aqui mero va el push
+    include 'f5pushservice.php';
     print $fdata;
 }
 
