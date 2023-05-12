@@ -11,7 +11,7 @@ function sendNotif ($to, $notif){
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($feilds));
     
     $headers = array();
-    $headers[] = 'Authorization: Key= AAAAfzBPa_Q:APA91bFs5pfdSaM0jg7cX2mzK7Yc13lqzMFieEtxx9jkpOY2KVi17dRi1YymQU1YdQ1pzhkFirWCqgC57buxG7VzY5OO20zTxwJpuJSzi-KxwbJVdcuzyA-csTE18MxsPICf5pRrFBSV';
+    $headers[] = 'Authorization: Key= AAAAtI_-dE4:APA91bEneLk2DTJbvZvak9VFTswLSpoy7yoYxIBaji-Y3xjQlYOdi3OMC1Fe67biVKVWqc6Hz0kOV2dVzfISIAYFEeY3w-CbeGsgWshKZTUESH86s5k6hDmojZDTjfmDZWPHCDdwoJiY';
     $headers[] = 'Content-Type: application/json';
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     
@@ -26,14 +26,9 @@ function sendNotif ($to, $notif){
 $to = "/topics/all";
 
 $notification = array(
-<<<<<<< HEAD
-    'title' => "New tournament!!",
-    'body' => "A new tournament is ready, Join now or miss out"
-=======
     'title' => "push by subscription",
     'body' => "esta es una notificacion por subscripcion",
     'image' => "https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg"
->>>>>>> dev_frank
 );
 
 sendNotif($to, $notification);
