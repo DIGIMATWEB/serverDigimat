@@ -1,7 +1,7 @@
 <?php
 $db_host    ="localhost";
 $db_user    ="digimat";
-$db_password="12345Aa1!";
+$db_password="digimat";
 $db_name    ="fhl";
 
 $conn  =new mysqli($db_host,$db_user,$db_password, $db_name);
