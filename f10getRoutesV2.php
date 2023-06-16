@@ -7,11 +7,13 @@ $data = json_decode($json);
 
 $morigin = $data->origin;
 $mdestination =  $data->destination;
+$mwaypoints = $data->sucursal;
 $key = "AIzaSyDPCfwKXZNrbDh1HKfphKr7yEAKIYUAciA";
 
 $params = array(
     'origin' => $morigin,
     'destination' => $mdestination,
+    'waypoints' => $mwaypoints,
     'key' => $key
 );
 
