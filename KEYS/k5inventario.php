@@ -13,7 +13,7 @@ $VidKey=$data->keyID;
 //datos del set
 $VnameKey=$data->nameKey;
 $VcantidadKey=$data->cantidadKey;
-$VimageKey=$data->imageKey
+$VimageKey=$data->imageKey;
 $VpriceKeys=$data->priceKeys;
 $VsocketKey=$data->socketKey;
 $VpositionKey=$data->positionKey;
