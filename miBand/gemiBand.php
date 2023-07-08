@@ -8,7 +8,11 @@ $countElement = $stmt->num_rows;
             while ($row = $stmt->fetch_assoc()) {
             $info=$row ['info'];
             }
-            echo $info;
+            $strippedData = stripslashes($info);
+            $modifiedData = str_replace('"[', '[', $strippedData);
+            $modifiedData2 = str_replace(']"', ']', $modifiedData);
+                
+            echo $modifiedData2;
         }else{
             echo "not rows found";
         }

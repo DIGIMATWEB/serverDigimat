@@ -4,9 +4,10 @@ include 'f1conn.php';
 $json = file_get_contents('php://input');//este es el input que recives en raw desde el postman
 $data = json_decode($json);//esta es el formato que necesitamos para manejar en php los valores de arrays
 
-if($data!=null){
-//echo('valor del output    '."\n".$json."\n");
-//echo($data->name);
+if($data!=null)
+{
+    //echo('valor del output    '."\n".$json."\n");
+    //echo($data->name);
 
 
 
