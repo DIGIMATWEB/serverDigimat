@@ -8,7 +8,6 @@ $text = file_get_contents('php://input');
 
 
 
-
 // Escape the text value to prevent SQL injection
 $escapedText = mysqli_real_escape_string($conn, $text);
 
