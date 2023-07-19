@@ -30,9 +30,6 @@ if($Vmode==1)   ///modo 1 edita
                         , ".$VpriceKeys." = 'priceKeys', ".$VsocketKey." = 'socketKey'
                         , ".$VpositionKey." = 'positionKey', ".$VcomentsKeys." = 'comentsKeys'";
 
-                    
-                        
-
                     $idKey=$row['idKeys'];   
                     $nameKey = $row['nameKey'];
                     $cantidadKey =  $row['cantidadKeys'];
