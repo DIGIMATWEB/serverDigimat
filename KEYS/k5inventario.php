@@ -13,7 +13,7 @@ $VidKey=$data->keyID;
 //datos del set
 $VnameKey=$data->nameKey;
 $VcantidadKey=$data->cantidadKey;
-$VimageKey=$data->imageKey
+$VimageKey=$data->imageKey;
 $VpriceKeys=$data->priceKeys;
 $VsocketKey=$data->socketKey;
 $VpositionKey=$data->positionKey;
@@ -29,9 +29,6 @@ if($Vmode==1)   ///modo 1 edita
                         $sql2 = "UPDATE tabKeys SET ".$VnameKey." = 'nameKey', ".$VcantidadKey." = 'cantidadKeys', ".$VimageKey." = 'imageKeys'
                         , ".$VpriceKeys." = 'priceKeys', ".$VsocketKey." = 'socketKey'
                         , ".$VpositionKey." = 'positionKey', ".$VcomentsKeys." = 'comentsKeys'";
-
-                    
-                        
 
                     $idKey=$row['idKeys'];   
                     $nameKey = $row['nameKey'];
