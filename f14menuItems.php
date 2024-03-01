@@ -1,18 +1,4 @@
 <?php
-
-/*$db_host    ="localhost";
-$db_user    ="digimat";
-$db_password="12345Aa1!";
-$db_name    ="Login";
-
-$conn  =new mysqli($db_host,$db_user,$db_password, $db_name);
-mysqli_set_charset($conn,'utf8');
-if(!$conn)
-{
-    die("Conexion fallida" . mysqli_connect_error());
-}
-
-*/
 include "f1conn.php";
 $json = file_get_contents('php://input');//este es el input que recives en raw desde el postman
 $data = json_decode($json);//esta es el formato que necesitamos para manejar en php los valores de arrays
