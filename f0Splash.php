@@ -25,12 +25,12 @@ if(!$conn)
            // {
                // echo   "query succed ";
                   while($row = $stmt->fetch_assoc()){
-                 $mVehicleId= $row['backgroundColor'];
-                 $mVehicleLat= $row['backgroundImage'];
-                 $mVehiclelong= $row['logo'];
-                 $mVehicleType= $row['typeAnimation'];
-                 $jsonDataOutput=array("mVehicleId"=>$mVehicleId,"mVehicleLat"=>$mVehicleLat,"mVehiclelong"=>$mVehiclelong,"mVehicleType"=>$mVehicleType);
-                 $finaldata[] =$jsonDataOutput;
+                 $mbackgroundColor= $row['backgroundColor'];
+                 $mbackgroundImage= $row['backgroundImage'];
+                 $mlogo= $row['logo'];
+                 $mtypeAnimation= $row['typeAnimation'];
+                 $jsonDataOutput=array("backgroundColor"=>$mbackgroundColor,"backgroundImage"=>$mbackgroundImage,"logo"=>$mlogo,"mVehicleType"=>$mtypeAnimation);
+                 $finaldata =$jsonDataOutput;
                  }
             //}
             //else{
