@@ -26,14 +26,14 @@ function sendNotif ($to, $notif){
 $to = "/topics/all";
 
 $notification = array(
-<<<<<<< HEAD
+/*<<<<<<< HEAD
     'title' => "New tournament!!",
     'body' => "A new tournament is ready, Join now or miss out"
-=======
+=======*/
     'title' => "push by subscription",
     'body' => "esta es una notificacion por subscripcion",
     'image' => "https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg"
->>>>>>> dev_frank
+
 );
 
 sendNotif($to, $notification);
