@@ -19,7 +19,7 @@ if($data!=null){
     $jsonResponse=array("responseCode"=>105,"message"=>"Register Succes","data"=>$data);
       echo   json_encode($jsonResponse);
        // Updating datos table
-       $sql_update = "UPDATE `datos` SET token = '$Vpass' WHERE email = '$VuserSerial'";
+       $sql_update = "UPDATE `datos` SET pasword = '$Vpass' WHERE email = '$VuserSerial'";
        if (!mysqli_query($conn, $sql_update)) {
            // If updating fails
            //echo "Error updating record: " . mysqli_error($conn);
