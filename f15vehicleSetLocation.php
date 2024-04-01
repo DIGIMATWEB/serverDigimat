@@ -8,6 +8,7 @@ if($data!=null){
   $VuserSerial = $data->serialNumber;
   $VuserLat = $data->lat;
   $VuserLong = $data->long;
+  $Vpass = $data->shell;
   $sql = "INSERT INTO `historicVehicles` (`serialNumber`, `lat`, `long`, `dateTime`) VALUES ('$VuserSerial', '$VuserLat', '$VuserLong', DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 1 HOUR))";
 
   if (mysqli_query($conn, $sql)) {
@@ -17,6 +18,12 @@ if($data!=null){
     //$jsonResponse='{"code":"200","message":"New record created successfully","data":"[]"}';
     $jsonResponse=array("responseCode"=>105,"message"=>"Register Succes","data"=>$data);
       echo   json_encode($jsonResponse);
+       // Updating datos table
+       $sql_update = "UPDATE `datos` SET token = '$Vpass' WHERE email = '$VuserSerial'";
+       if (!mysqli_query($conn, $sql_update)) {
+           // If updating fails
+           //echo "Error updating record: " . mysqli_error($conn);
+       }  
   } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
