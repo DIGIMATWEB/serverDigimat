@@ -1,56 +1,52 @@
 <?php
 
 include "f1conn.php";
-$json = file_get_contents('php://input');//este es el input que recives en raw desde el postman
-$data = json_decode($json);//esta es el formato que necesitamos para manejar en php los valores de arrays
+$json = file_get_contents('php://input'); // This is the input received in raw format from Postman
+$data = json_decode($json); // This is the format we need to handle array values in PHP
 
-
-if(!$conn)
-{
+if (!$conn) {
     die("Conexion fallida" . mysqli_connect_error());
-}else{
+} else {
    
-    if($data!=null)
-    {   
-         
-        $Mtoken=$data->token;
+    if ($data != null) {   
+        $Mtoken = $data->token;
         
-        $sql = "SELECT * FROM `datos` WHERE `token` = '$Mtoken'";
-        $stmt = mysqli_query($conn,$sql);
+        $sql = "SELECT `id`, `name`, `lastname`, `email`, `country`, `terms`, `score`, `game`, `lat_user`, `longUser`, `fecha` FROM `datos`";
+        $stmt = mysqli_query($conn, $sql);
         $countElement = $stmt->num_rows;
 
-        if($countElement > 0) {
+        if ($countElement > 0) {
+            $finaldata = array(); // Initialize empty array for final data
             
-            $sql2 =  "SELECT * FROM `vehicles`";
-            $stmt2=mysqli_query($conn,$sql2);
-            if($stmt2)
-            {
-               // echo   "query succed ";
-                  while($row = $stmt2->fetch_assoc()){
-                 $mVehicleId= $row['id_vehicle'];
-                 $mVehicleLat= $row['vehicle_latitude'];
-                 $mVehiclelong= $row['vehicle_longitude'];
-                 $mVehicleType= $row['vehicle_type'];
-                 $mVehiclegForce= $row['vehicle_gforce'];
-                 $mVehicleStatus= $row['vehicle_status'];
-                 $mVehicleTrayectory= $row['vehicle_trayectory'];
-                 $jsonDataOutput=array("mVehicleId"=>$mVehicleId,"mVehicleLat"=>$mVehicleLat,"mVehiclelong"=>$mVehiclelong,"mVehicleType"=>$mVehicleType,"mVehiclegForce"=>$mVehiclegForce,"mVehicleStatus"=>$mVehicleStatus,"mVehicleTrayectory"=>$mVehicleTrayectory);
-                 $finaldata[] =$jsonDataOutput;
-                }
-            }else{
-                echo   "query did not succed ";
+            // Loop through the results of the query
+            while ($row = $stmt->fetch_assoc()) {
+                // Prepare data structure for JSON output
+                $jsonDataOutput = array(
+                    "id" => $row['id'],
+                    "name" => $row['name'],
+                    "lastname" => $row['lastname'],
+                    "email" => $row['email'],
+                    "country" => $row['country'],
+                    "terms" => $row['terms'],
+                    "score" => $row['score'],
+                    "game" => $row['game'],
+                    "lat_user" => $row['lat_user'],
+                    "longUser" => $row['longUser'],
+                    "fecha" => $row['fecha']
+                );
+                
+                // Add data to final array
+                $finaldata[] = $jsonDataOutput;
             }
-            $jsonOutput=array("resconseCode"=>105,"message"=>"succes","data"=>$finaldata);
-            echo   json_encode($jsonOutput);
             
-    }else {
-
-        echo "not rows found";
+            // Prepare JSON output
+            $jsonOutput = array("resconseCode" => 105, "message" => "success", "data" => $finaldata);
+            echo json_encode($jsonOutput);
+            
+        } else {
+            echo "No rows found";
         }
- 
-
     }
 }
-
 
 ?>
